@@ -63,6 +63,7 @@ namespace LongoMatch
 			    GUIToolkit guiToolkit = new GUIToolkit(version);
 			    IMultimediaToolkit multimediaToolkit = new MultimediaFactory();
 			    manager.LoadExportProjectAddins(guiToolkit.MainWindow);
+			    manager.LoadImportProjectAddins(guiToolkit.MainWindow);
 				Core.Start(guiToolkit, multimediaToolkit);
 				Application.Run();
 			} catch(Exception ex) {

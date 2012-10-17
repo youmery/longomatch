@@ -47,7 +47,13 @@ namespace LongoMatch.Addins
 			foreach (IExportProject exportProject in AddinManager.GetExtensionObjects<IExportProject> ()) {
 				mainWindow.AddExportEntry(exportProject.GetMenuEntryName(), exportProject.GetMenuEntryShortName(),
 					new Action<Project, IGUIToolkit>(exportProject.ExportProject));
-			
+			}
+		}
+		
+		public void LoadImportProjectAddins(IMainWindow mainWindow) {
+			foreach (IImportProject importProject in AddinManager.GetExtensionObjects<IImportProject> ()) {
+				mainWindow.AddImportEntry(importProject.GetMenuEntryName(), importProject.GetMenuEntryShortName(),
+					new Action<string, IGUIToolkit>(importProject.ImportProject));
 			}
 		}
 	}
