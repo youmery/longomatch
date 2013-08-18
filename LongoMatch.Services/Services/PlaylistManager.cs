@@ -70,7 +70,7 @@ namespace LongoMatch.Services
 			}
 		}
 		
-		private void BindEvents(IMainWindow mainWindow, IPlayer player) {
+		private void BindEvents(IAnalysisWindow mainWindow, IPlayer player) {
 			/* Track loaded element */
 			mainWindow.PlaySelectedEvent += (p) => {selectedTimeNode = p;};
 			player.SegmentClosedEvent += () => {selectedTimeNode = null;};

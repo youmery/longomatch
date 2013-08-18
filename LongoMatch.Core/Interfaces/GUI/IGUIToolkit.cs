@@ -30,7 +30,7 @@ namespace LongoMatch.Interfaces.GUI
 {
 	public interface IGUIToolkit
 	{
-		IMainWindow MainWindow {get;}
+		IAnalysisWindow MainWindow {get;}
 		Version Version {get;}
 	
 		/* Messages */

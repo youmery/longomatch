@@ -39,7 +39,7 @@ namespace LongoMatch.Services
 		static GameUnitsManager guManager;
 		static PlaylistManager plManager;
 		static RenderingJobsManager videoRenderer;
-		static IMainWindow mainWindow;
+		static IAnalysisWindow mainWindow;
 		static IGUIToolkit guiToolkit;
 
 		public static void Init()
@@ -107,7 +107,7 @@ namespace LongoMatch.Services
 			projectsManager.OpenedProjectChanged += OnOpenedProjectChanged;
 		}
 
-		public static void BindEvents(IMainWindow mainWindow) {
+		public static void BindEvents(IAnalysisWindow mainWindow) {
 			mainWindow.EditPreferencesEvent += () => {guiToolkit.OpenPreferencesEditor();};
 		}
 

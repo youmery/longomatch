@@ -26,14 +26,14 @@ namespace LongoMatch.Services
 {
 	public class GameUnitsManager
 	{
-		IMainWindow mainWindow;
+		IAnalysisWindow mainWindow;
 		IPlayer player;
 		Project openedProject;
 		Dictionary<GameUnit, Time> gameUnitsStarted;
 		ushort fps;
 		
 		
-		public GameUnitsManager (IMainWindow mainWindow, IPlayer player)
+		public GameUnitsManager (IAnalysisWindow mainWindow, IPlayer player)
 		{
 			this.mainWindow = mainWindow;
 			this.player = player;

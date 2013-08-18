@@ -25,7 +25,7 @@ using LongoMatch.Store.Templates;
 
 namespace LongoMatch.Interfaces.GUI
 {
-	public interface IMainWindow
+	public interface IAnalysisWindow
 	{	
 		/* Tags */
 		event NewTagHandler NewTagEvent;
@@ -49,25 +49,6 @@ namespace LongoMatch.Interfaces.GUI
 		/* Snapshots */
 		event SnapshotSeriesHandler SnapshotSeriesEvent;
 		
-		/* Projects */
-		event SaveProjectHandler SaveProjectEvent;
-		event NewProjectHandler NewProjectEvent;
-		event OpenProjectHandler OpenProjectEvent;
-		event CloseOpenendProjectHandler CloseOpenedProjectEvent;
-		event ImportProjectHandler ImportProjectEvent;
-		event ExportProjectHandler ExportProjectEvent;
-		
-		/* Managers */
-		event ManageJobsHandler ManageJobsEvent; 
-		event ManageTeamsHandler ManageTeamsEvent;
-		event ManageCategoriesHandler ManageCategoriesEvent;
-		event ManageProjects ManageProjectsEvent;
-		event ManageDatabases ManageDatabasesEvent;
-		event EditPreferences EditPreferencesEvent;
-		
-		/* Stats */
-		event ShowProjectStats ShowProjectStatsEvent;
-		
 		/* Game Units events */
 		event GameUnitHandler GameUnitEvent;
 		event UnitChangedHandler UnitChanged;
@@ -77,15 +58,18 @@ namespace LongoMatch.Interfaces.GUI
 		
 		event KeyHandler KeyPressed;
 		
-		/* Convert Video Files */
-		event ConvertVideoFilesHandler ConvertVideoFilesEvent;
-		
 		void SetProject(Project project, ProjectType projectType, CaptureSettings props, PlaysFilter filter);
+		void CloseOpenedProject ();
 		void AddPlay(Play play);
 		void UpdateSelectedPlay (Play play);
 		void UpdateCategories (Categories categories);
 		void DeletePlays (List<Play> plays);
 		void UpdateGameUnits (GameUnitsList gameUnits);
+		
+		bool Fullscreen {set;}
+		bool WidgetsVisible {set;}
+		bool PlaylistVisible {set;}
+		VideoAnalysisMode AnalysisMode {set;}
 		
 		IRenderingStateBar RenderingStateBar{get;}
 		IPlayer Player{get;}

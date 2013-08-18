@@ -40,7 +40,7 @@ namespace LongoMatch.Gui
 	public class GUIToolkit: IGUIToolkit
 	{
 		static GUIToolkit instance;
-		IMainWindow mainWindow;
+		IAnalysisWindow mainWindow;
 		
 		public GUIToolkit (Version version)
 		{
@@ -56,7 +56,7 @@ namespace LongoMatch.Gui
 			}
 		}
 		
-		public IMainWindow MainWindow{
+		public IAnalysisWindow MainWindow{
 			get {
 				return mainWindow;
 			}

@@ -40,7 +40,7 @@ namespace LongoMatch.Services
 		Dictionary<HotKey, Category> dic;
 		bool ignoreKeys;
 		
-		public HotKeysManager(IMainWindow mainWindow)
+		public HotKeysManager(IAnalysisWindow mainWindow)
 		{
 			dic = new Dictionary<HotKey,Category>();
 			mainWindow.KeyPressed += KeyListener;

@@ -38,7 +38,7 @@ namespace LongoMatch.Services
 
 		IGUIToolkit guiToolkit;
 		IMultimediaToolkit multimediaToolkit;
-		IMainWindow mainWindow;
+		IAnalysisWindow mainWindow;
 		
 		public ProjectsManager(IGUIToolkit guiToolkit, IMultimediaToolkit multimediaToolkit) {
 			this.multimediaToolkit = multimediaToolkit;
@@ -258,6 +258,45 @@ namespace LongoMatch.Services
 			}
 			fChooser.Destroy();
 		}*/
+
+		private bool PromptCloseProject() {
+			int res;
+			EndCaptureDialog dialog;
+
+			if(openedProject == null)
+				return true;
+
+			if(projectType == ProjectType.FileProject) {
+				MessageDialog md = new MessageDialog(this, DialogFlags.Modal,
+				                                     MessageType.Question, ButtonsType.OkCancel,
+				                                     Catalog.GetString("Do you want to close the current project?"));
+				res = md.Run();
+				md.Destroy();
+				if(res == (int)ResponseType.Ok) {
+					EmitCloseOpenedProject(true);
+					return true;
+				}
+				return false;
+			}
+
+			/* Capture project */
+			dialog = new EndCaptureDialog();
+			dialog.TransientFor = (Gtk.Window)this.Toplevel;
+			res = dialog.Run();
+			dialog.Destroy();
+
+			/* Close project wihtout saving */
+			if(res == (int)EndCaptureResponse.Quit) {
+				EmitCloseOpenedProject(false);
+				return true;
+			} else if(res == (int)EndCaptureResponse.Save) {
+				/* Close and save project */
+				EmitCloseOpenedProject(true);
+				return true;
+			} else
+				/* Continue with the current project */
+				return false;
+		}
 
 		private void CreateThumbnails(Project project) {
 			IFramesCapturer capturer;

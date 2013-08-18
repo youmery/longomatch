@@ -47,7 +47,7 @@ namespace LongoMatch.Services
 		PlaysFilter filter;
 		
 		IGUIToolkit guiToolkit;
-		IMainWindow mainWindow;
+		IAnalysisWindow mainWindow;
 		IPlayer player;
 		ICapturer capturer;
 		IRenderingJobsManager renderer;
